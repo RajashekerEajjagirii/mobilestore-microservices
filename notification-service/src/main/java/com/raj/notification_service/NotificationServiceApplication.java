@@ -1,0 +1,25 @@
+package com.raj.notification_service;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.kafka.annotation.KafkaListener;
+
+@SpringBootApplication
+@Slf4j
+@EnableDiscoveryClient
+public class NotificationServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(NotificationServiceApplication.class, args);
+    }
+
+    //Defining Kafka Listener
+    @KafkaListener(topics = "notificationTopic", groupId ="notificationId" )
+    public void handleNotification(OrderPlacedEvent orderPlacedEvent) {
+        //Send out on email Notification
+
+        log.info("Recieved Order Notication for Order Number :  " + orderPlacedEvent.getOrderId());
+    }
+}
