@@ -1,4 +1,4 @@
-package com.raj.notification_service;
+package com.raj.order_service.Event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
