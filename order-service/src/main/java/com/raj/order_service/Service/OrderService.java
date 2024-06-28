@@ -10,24 +10,25 @@ import com.raj.order_service.Repository.OrderRepo;
 import io.micrometer.tracing.Span;
 import io.micrometer.tracing.Tracer;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 //@AllArgsConstructor
+//@NoArgsConstructor
 @Slf4j
 public class OrderService {
 
@@ -47,7 +48,10 @@ public class OrderService {
     @Getter
     private final Tracer tracer;
 
-    private final KafkaTemplate<String,OrderPlacedEvent> kafkaTemplate;
+//    @Autowired(required = true)
+//    private final KafkaTemplate<String,OrderPlacedEvent> kafkaTemplate;
+    @Autowired
+    private final KafkaTemplate<String,Object> kafkaTemplate;
 
     public String placeOrder(OrderRequest orderRequest) {
         Order order=new Order();
@@ -84,8 +88,18 @@ public class OrderService {
                 orderRepo.save(order);
                 log.info("before calling kafka");
                 //triggering event to notification-service to send mail
-                kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderId()));
-                log.info("Order Placed Successfully with id: {} ", order.getOrderId());
+//                CompletableFuture<SendResult<String,OrderPlacedEvent>> future=kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderId()));
+//                future.whenComplete((result,ex)->{
+//                    if(ex==null){
+//                        System.out.println("Sent Message["+order.getOrderId()+"] with Offset=["+result.getRecordMetadata().offset()+"]");
+//                    }else{
+//                        System.out.println("Unable to send Message due to: "+ex.getMessage());
+//                    }
+//                });
+                for(int i=1;i<=5000;i++) {
+                    kafkaTemplate.send("orderPlaced", new OrderPlacedEvent(order.getOrderId()));
+                    log.info("Order {} Placed Successfully with id: {} ",i, order.getOrderId());
+                }
                 return "Order Placed Successfully!";
             }else{
                 throw new IllegalArgumentException("Product is not in Stock, please try again later.");
