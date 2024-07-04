@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b4e472b-0e36-4000-85e2-aa92809c52ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/order_service/Consumer/KafkaMessageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/order_service/config/KafkaConsumerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/notification_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/order_service/NotificationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/notification_service/OrderPlacedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/order_service/Event/OrderPlacedEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/raj/order_service/Config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/raj/order_service/Config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/order_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/raj/order_service/NotificationServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/raj/order_service/Service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/raj/order_service/Service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/raj/product_service/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/raj/product_service/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/raj/product_service/Service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/raj/product_service/Service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +105,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.NotificationServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ProductServiceApplication">
     <configuration name="ProductServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="product-service" />
       <extension name="coverage">
@@ -231,9 +227,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.NotificationServiceApplication" />
         <item itemvalue="Spring Boot.ApiGatewayApplication" />
         <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+        <item itemvalue="Spring Boot.NotificationServiceApplication" />
         <item itemvalue="JUnit.ProductServiceApplicationTests" />
         <item itemvalue="Maven.mobilestore-parent [package]" />
       </list>
@@ -281,6 +277,11 @@
       <workItem from="1719472785312" duration="3069000" />
       <workItem from="1719480255004" duration="11748000" />
       <workItem from="1719500537478" duration="125000" />
+      <workItem from="1719578453714" duration="1478000" />
+      <workItem from="1719768112281" duration="669000" />
+      <workItem from="1719906274366" duration="4440000" />
+      <workItem from="1720012984566" duration="12099000" />
+      <workItem from="1720073049373" duration="4629000" />
     </task>
     <servers />
   </component>
@@ -308,7 +309,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/raj/order_service/Service/OrderService.java</url>
-          <line>126</line>
+          <line>124</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint type="java-line">

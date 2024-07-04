@@ -6,6 +6,8 @@ import com.raj.product_service.Model.Product;
 import com.raj.product_service.Repository.ProductRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -53,5 +55,20 @@ public class ProductService {
                 .color(product.getColor())
                 .build();
 
+    }
+
+    public List<ProductResponse> getAllProductsBasedOnFieldSorting(String field) {
+        List<Product> products=productRepo.findAll(Sort.by(Sort.Direction.ASC,field));
+        return products.stream().map(this:: mapToProductResponse).toList();
+    }
+
+    public List<ProductResponse> getAllProductsWithPagination(int offset, int pageSize) {
+        List<Product> products=productRepo.findAll(PageRequest.of(offset,pageSize)).getContent();
+        return products.stream().map(this:: mapToProductResponse).toList();
+    }
+
+    public List<ProductResponse> getAllProductsWithPaginationSorting(int offset, int pageSize, String field) {
+        List<Product> products=productRepo.findAll(PageRequest.of(offset,pageSize,Sort.by(Sort.Direction.ASC,field))).getContent();
+        return products.stream().map(this:: mapToProductResponse).toList();
     }
 }

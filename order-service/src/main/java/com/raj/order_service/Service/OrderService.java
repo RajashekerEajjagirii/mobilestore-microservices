@@ -48,8 +48,6 @@ public class OrderService {
     @Getter
     private final Tracer tracer;
 
-//    @Autowired(required = true)
-//    private final KafkaTemplate<String,OrderPlacedEvent> kafkaTemplate;
     @Autowired
     private final KafkaTemplate<String,Object> kafkaTemplate;
 

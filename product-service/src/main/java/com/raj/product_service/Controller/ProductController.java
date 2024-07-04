@@ -42,4 +42,41 @@ public class ProductController {
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
        }
     }
+
+    //Fetching All Products based on Sorting
+    @GetMapping("/{field}")
+    public ResponseEntity<List<ProductResponse>> getAllProductsBasedOnSorting(@PathVariable String field) {
+        try{
+            List<ProductResponse> products=productService.getAllProductsBasedOnFieldSorting(field);
+            return ResponseEntity.status(HttpStatus.OK).body(products);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+
+    //Fetching All Products based on Pagination
+    @GetMapping("/pagination/{offset}/{pageSize}")
+    public ResponseEntity<List<ProductResponse>> getAllProductsWithPagination(@PathVariable int offset, @PathVariable int pageSize) {
+        try{
+            List<ProductResponse> products=productService.getAllProductsWithPagination(offset,pageSize);
+            return ResponseEntity.status(HttpStatus.OK).body(products);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+
+    //Fetching All Products based on Sorting with Pagination
+    @GetMapping("/pagination/{offset}/{pageSize}/{field}")
+    public ResponseEntity<List<ProductResponse>> getAllProductsBySortingPagination(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+        try{
+            List<ProductResponse> products=productService.getAllProductsWithPaginationSorting(offset,pageSize,field);
+            return ResponseEntity.status(HttpStatus.OK).body(products);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+    }
+
 }
