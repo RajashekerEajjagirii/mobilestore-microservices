@@ -14,11 +14,4 @@ public class NotificationServiceApplication {
         SpringApplication.run(NotificationServiceApplication.class, args);
     }
 
-//    //Defining Kafka Listener
-//    @KafkaListener(topics = "notificationTopic-1", groupId ="notificationId-1" )
-//    public void handleNotification(OrderPlacedEvent orderPlacedEvent) {
-//        //Send out on email Notification
-//        System.out.println("coming kafka lIsterner");
-//        log.info("Recieved Order Notication for Order Number :  " + orderPlacedEvent.getOrderId());
-//    }
 }
